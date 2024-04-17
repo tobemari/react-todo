@@ -1,4 +1,3 @@
-import * as React from 'react';
 import { useState } from 'react';
 
 
@@ -30,6 +29,6 @@ function AddTodoForm({onAddTodo}) {
         </div>
     );
     
-};
+}
 
 export default AddTodoForm;
