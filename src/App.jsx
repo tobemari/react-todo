@@ -1,44 +1,69 @@
-import { useState, useEffect } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import AddTodoForm from './AddTodoForm'
-import TodoList from './TodoList'
+import * as React from 'react';
+import TodoList from './TodoList';
+import AddTodoForm from './AddTodoForm';
 
-function useSemiPersistentState() {
-  const [todoList, setTodoList] = useState(JSON.parse(localStorage.getItem('savedTodoList')) || []);
-  useEffect(() => {
-    localStorage.setItem('savedTodoList', JSON.stringify(todoList));
-  }, [todoList]);
+const useSemiPersistentState = () => {
+  const [todoList, setTodoList] = React.useState(
+    JSON.parse(localStorage.getItem('savedTodoList')) || []);
+
+  React.useEffect (() => {
+  localStorage.setItem('savedTodoList', JSON.stringify(todoList))
+  }, [todoList])
 
   return [todoList, setTodoList];
-};
+}
 
-function App() {
+
+
+const App = () => {
+
   const [todoList, setTodoList] = useSemiPersistentState();
+  const [isLoading, setIsLoading] = React.useState(true);
 
-  const addTodo = (newTodo) => {
+  React.useEffect(() => {
+    new Promise((resolve, reject) =>
+      setTimeout(
+        () =>
+          resolve({
+            data: {
+              todoList: JSON.parse(localStorage.getItem("savedTodoList") || []),
+            },
+          }),
+        2000
+      )
+    ).then((result) => {
+      setTodoList(result.data.todoList);
+      setIsLoading(false);
+    });
+  }, []);
+
+  React.useEffect(() => {
+    if (!isLoading) {
+      localStorage.setItem("savedTodoList", JSON.stringify(todoList));
+    }
+  }, [todoList]);
+
+  const addTodo = (newTodo) => {   
     setTodoList([...todoList, newTodo]);
   };
- 
+
   const removeTodo = (id) => {
-  const updatedTodoList = todoList.filter(todo => todo.id !==id);
-  setTodoList(updatedTodoList);
+    const modifiedTodoList = todoList.filter((todo) => todo.id !== id);
+    setTodoList(modifiedTodoList);
   };
 
   return (
     <>
-    <div>
       <h1>Todo List</h1>
-    </div>
-    <div>
-      <AddTodoForm onAddTodo={addTodo} />
-    </div>
-    <div>
-      <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
-    </div>
-  </>
+      <AddTodoForm onAddTodo={addTodo}/>
+      <hr />
+      {isLoading ? (
+        <p>Loading ...</p>
+      ) : (
+        <TodoList todoList={todoList} onRemoveTodo={removeTodo} />
+      )}
+    </>
   );
-};
+};      
 
 export default App;
