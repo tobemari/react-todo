@@ -1,16 +1,28 @@
-import item from "./TodoList";
+import React from "react";
+import styles from "./TodoListItem.module.css";
+import check from "./assets/pig-svgrepo-com.svg"
 
 
-function TodoListItem ({ todo, onRemoveTodo }) {
-  const RemoveButton = () => {
+const TodoListItem = ({ todo, onRemoveTodo }) => {
+  const handleOnRemove = () => {
     onRemoveTodo(todo.id);
   };
-  return  (
-    <li>
-      <span>{todo.title}</span>
-      <button type="button" onClick={RemoveButton}>Remove</button>
+
+  return (
+    <li className={styles.listItem}>
+       <span>
+          {todo.title}
+      </span>
+      <span>
+        <button 
+          type="button" 
+          onClick={handleOnRemove}
+        >
+          <img src={check} className={styles.checkLogo} alt="Check logo" />
+        </button>
+      </span>
     </li>
   );
-}
+};
 
 export default TodoListItem;

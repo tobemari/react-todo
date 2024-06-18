@@ -1,4 +1,3 @@
-
 import React from "react";
 
 const InputWithLabel = ({ id, todoTitle, handleTitleChange, children }) => {
