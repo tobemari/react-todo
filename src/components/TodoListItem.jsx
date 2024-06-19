@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./TodoListItem.module.css";
-import check from "./assets/pig-svgrepo-com.svg"
+import check from "../assets/pig-svgrepo-com.svg";
+import PropTypes from "prop-types";
 
 
 const TodoListItem = ({ todo, onRemoveTodo }) => {
@@ -24,5 +25,10 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
     </li>
   );
 };
+
+TodoListItem.propTypes = {
+  todoLtodoist: PropTypes.string,
+  onRemoveTodo: PropTypes.func
+}
 
 export default TodoListItem;
