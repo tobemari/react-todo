@@ -19,7 +19,7 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
           type="button" 
           onClick={handleOnRemove}
         >
-          <img src={check} className={styles.checkLogo} alt="Check logo" />
+          <img src={check} alt="Check logo" />
         </button>
       </span>
     </li>
