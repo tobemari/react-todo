@@ -1,20 +1,18 @@
-import React from 'react';
-import InputWithLabel from './InputWithLabel';
+import React from "react";
+import InputWithLabel from "./InputWithLabel";
 import PropTypes from "prop-types";
 
 const AddTodoForm = ({ onAddTodo }) => {
-
-  const [todoTitle, setTodoTitle] = React.useState('');
+  const [todoTitle, setTodoTitle] = React.useState("");
 
   const handleTitleChange = (event) => {
-    const newTodoTitle = event.target.value;
-    setTodoTitle(newTodoTitle);
+    setTodoTitle(event.target.value);
   };
 
   const handleAddTodo = (event) => {
     event.preventDefault();
     onAddTodo({ title: todoTitle, id: Date.now() });
-    setTodoTitle('');
+    setTodoTitle("");
   };
 
   return (
@@ -24,7 +22,7 @@ const AddTodoForm = ({ onAddTodo }) => {
           todoTitle={todoTitle}
           handleTitleChange={handleTitleChange}
         >
-          Title:  
+          Title:
         </InputWithLabel>
         <button type="submit">Add</button>
       </form>
@@ -33,7 +31,7 @@ const AddTodoForm = ({ onAddTodo }) => {
 };
 
 AddTodoForm.propTypes = {
-  onAddTodo: PropTypes.func
-}
+  onAddTodo: PropTypes.func.isRequired,
+};
 
 export default AddTodoForm;
