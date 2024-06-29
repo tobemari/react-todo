@@ -52,3 +52,12 @@ img{
     width: 2.5em;
 
 }
+
+.sortButton{
+    background-color: transparent;
+    box-shadow: 1px 3px 5px 1px rgba(84, 90, 84, 0.5);
+    color: #68485f;
+    padding: 0.2em;
+    font-size: 1.2em;
+    margin-top: 5%;
+}
