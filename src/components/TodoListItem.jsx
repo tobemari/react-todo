@@ -3,7 +3,6 @@ import styles from "./TodoListItem.module.css";
 import check from "../assets/pig-svgrepo-com.svg";
 import PropTypes from "prop-types";
 
-
 const TodoListItem = ({ todo, onRemoveTodo }) => {
   const handleOnRemove = () => {
     onRemoveTodo(todo.id);
@@ -11,14 +10,9 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
 
   return (
     <li className={styles.listItem}>
-       <span>
-          {todo.title}
-      </span>
+      <span>{todo.title}</span>
       <span>
-        <button 
-          type="button" 
-          onClick={handleOnRemove}
-        >
+        <button type="button" onClick={handleOnRemove}>
           <img src={check} alt="Check logo" />
         </button>
       </span>
@@ -28,7 +22,7 @@ const TodoListItem = ({ todo, onRemoveTodo }) => {
 
 TodoListItem.propTypes = {
   todoLtodoist: PropTypes.string,
-  onRemoveTodo: PropTypes.func
-}
+  onRemoveTodo: PropTypes.func.isRequired,
+};
 
 export default TodoListItem;

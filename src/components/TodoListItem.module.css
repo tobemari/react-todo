@@ -1,63 +1,67 @@
-body{
-    background: linear-gradient(to right, #f2b6ff, #ffb82a);
-    color: #68485f;
-    font-family: "REM", Impact;
-    font-optical-sizing: auto;
-    font-weight: 600;
-    padding-left: 3em;
+body {
+  background: linear-gradient(to right, #f2b6ff, #ffb82a);
+  color: #68485f;
+  font-family: "REM", Impact;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  padding-left: 3em;
 }
 
-form{
-    display:flex;
+form {
+  display: flex;
 }
 
-label{
-    padding: 3px 5px 0 0;
+label {
+  padding: 3px 5px 0 0;
 }
 
 form > button {
-    background-color: #68485f;
-    box-shadow: 1px 3px 5px 1px rgba(84, 90, 84, 0.5);
-    color:#ffffff;
-    padding: 0.2em;
-    margin-left: 10px;
-    font-size: 1.2em;
+  background-color: #68485f;
+  box-shadow: 1px 3px 5px 1px rgba(84, 90, 84, 0.5);
+  color: #ffffff;
+  padding: 0.2em;
+  margin-left: 10px;
+  font-size: 1.2em;
 }
 
 ul {
-    padding: 0;
+  padding: 0;
 }
 
 li > span > button {
-    padding: 0;
-    background-color: transparent;
-    cursor: pointer;
+  padding: 0;
+  background-color: transparent;
+  cursor: pointer;
 }
 
 span:nth-child(odd) {
-    padding-top: 10px;
+  padding-top: 10px;
 }
 span:nth-child(even) {
-    padding-left: 10px;
+  padding-left: 10px;
 }
 
 .listItem {
-    color: #68485f;
-    display: flex;
-    justify-content: space-between;
-    list-style: square;
+  color: #68485f;
+  display: flex;
+  justify-content: space-between;
+  list-style: square;
 }
 
-img{
-    width: 2.5em;
-
+img {
+  width: 2.5em;
 }
 
-.sortButton{
-    background-color: transparent;
-    box-shadow: 1px 3px 5px 1px rgba(84, 90, 84, 0.5);
-    color: #68485f;
-    padding: 0.2em;
-    font-size: 1.2em;
-    margin-top: 5%;
+.sortButton {
+  background-color: transparent;
+  box-shadow: 1px 3px 5px 1px rgba(84, 90, 84, 0.5);
+  color: #68485f;
+  padding: 0.2em;
+  font-size: 1.2em;
+  margin-top: 5%;
+}
+
+.tableName {
+  margin-left: 25%;
+  color: #c2489f;
 }
